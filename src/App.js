@@ -1,37 +1,23 @@
-import logo from './logo.svg';
-
 import { Grid, Container, Header, Statistic, Segment, Icon, Form, Button } from 'semantic-ui-react';
+import MainHeader from './components/MainHeader';
+import ButtonSaveOrCancel from './components/ButtonSaveOrCancel';
+import NewEntryForm from './components/NewEntryForm';
+import DisplayBalance from './components/DisplayBalance'
 
 function App() {
   return (
     <Container>
-      <Header as='h1'>BUDGET</Header>
-      <Statistic size='small'>
-        <Statistic.Label>Your Balance</Statistic.Label>
-        <Statistic.Value>6,563.00</Statistic.Value>
-      </Statistic>
+      <MainHeader />
+      <DisplayBalance title="Your Balance" Value="28,955.00" Color="black" size="small" />
+
       <Segment textAlign='center'>
         <Grid columns={2} divided>
           <Grid.Row>
             <Grid.Column>
-              <Statistic size='tiny' color='green'>
-                <Statistic.Label style={{ textAlign: 'left' }}>
-                  Income
-              </Statistic.Label>
-                <Statistic.Value>
-                  1,045.50
-                </Statistic.Value>
-              </Statistic>
+              <DisplayBalance title="Income" Value="50,555.00" Color="green" />
             </Grid.Column>
             <Grid.Column>
-              <Statistic size='tiny' color='red'>
-                <Statistic.Label style={{ textAlign: 'left' }}>
-                  Expenses
-          </Statistic.Label>
-                <Statistic.Value>
-                  500.50
-            </Statistic.Value>
-              </Statistic></Grid.Column>
+              <DisplayBalance title="Expenses" Value="21,600.00" Color="red" /></Grid.Column>
           </Grid.Row>
         </Grid>
       </Segment>
@@ -75,30 +61,11 @@ function App() {
       <Header as='h3'>
         Add New Transaction
       </Header>
-      <Form unstackable >
-        <Form.Group>
-          <Form.Input
-            icon='tags'
-            width={12}
-            label='Description'
-            placeholder='New Shiny Thing'
-          />
-          <Form.Input
-            icon='dollar'
-            width={4}
-            label='Value'
-            iconPosition='left'
-            placeholder='100.00'
-          />
-        </Form.Group>
-        <Button.Group style={{ marginTop: 30 }}>
-          <Button>Cancel</Button>
-          <Button.Or></Button.Or>
-          <Button primary>Ok</Button>
-        </Button.Group>
-      </Form>
+      <NewEntryForm />
     </Container >
   );
 }
 
 export default App;
+
+
