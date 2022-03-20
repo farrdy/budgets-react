@@ -7,12 +7,13 @@ function NewEntryForm({addEntry}) {
 const [Description, setDescription] = useState('');
 const [Value, setValue] = useState('');
 const [isExpense, setIsExpense] = useState(true)
+
     return (
 
         <Form unstackable >
            <EntryForm 
            description={Description}
-            value={Value}
+        value={Value}
             setDescription={setDescription}
             setValue={setValue}
             isExpense={isExpense}

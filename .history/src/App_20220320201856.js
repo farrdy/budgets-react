@@ -37,6 +37,7 @@ function addEntry(Description, Value, isExpense){
         Add New Transaction
       </Header>
       <NewEntryForm addEntry={addEntry} />
+      <ModalEdit/>
     </Container>
     
   );

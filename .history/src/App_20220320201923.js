@@ -27,7 +27,7 @@ function addEntry(Description, Value, isExpense){
      setEntries(result);
 }
   return (
-    <Container>
+    <>
       <MainHeader />
       <DisplayBalance title="Your Balance" Value="28,955.00" Color="black" size="small" />
       <DisplayBalances/>    
@@ -37,7 +37,8 @@ function addEntry(Description, Value, isExpense){
         Add New Transaction
       </Header>
       <NewEntryForm addEntry={addEntry} />
-    </Container>
+      <ModalEdit/>
+    </>
     
   );
 }

@@ -3,7 +3,7 @@ import MainHeader from './components/MainHeader';
 import NewEntryForm from './components/NewEntryForm';
 import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import EntryLines from './components/EntryLines';
 import ModalEdit from './components/ModalEdit';
 
@@ -27,7 +27,7 @@ function addEntry(Description, Value, isExpense){
      setEntries(result);
 }
   return (
-    <Container>
+    <Fragment>
       <MainHeader />
       <DisplayBalance title="Your Balance" Value="28,955.00" Color="black" size="small" />
       <DisplayBalances/>    
@@ -37,7 +37,8 @@ function addEntry(Description, Value, isExpense){
         Add New Transaction
       </Header>
       <NewEntryForm addEntry={addEntry} />
-    </Container>
+      <ModalEdit/>
+    <Fragment/>
     
   );
 }

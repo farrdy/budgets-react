@@ -5,7 +5,6 @@ import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances';
 import { useState } from 'react';
 import EntryLines from './components/EntryLines';
-import ModalEdit from './components/ModalEdit';
 
 function App() {
 
@@ -15,12 +14,11 @@ function App() {
   const result=entries.filter(entry=>entry.id!==id)
   setEntries(result);
 }
-function addEntry(Description, Value, isExpense){
-  const result=  entries.concat({id: entries.length+1, 
-     Description:Description,
-     Value:Value,
-     isExpense
-    });
+function addEntry(Description, Value){
+  const result=  entries.concat({
+    id:entries.length+1, 
+    Description,
+     Value});
 
       console.log(`result`, result);
       console.log(`entries`, entries);
@@ -38,7 +36,6 @@ function addEntry(Description, Value, isExpense){
       </Header>
       <NewEntryForm addEntry={addEntry} />
     </Container>
-    
   );
 }
 

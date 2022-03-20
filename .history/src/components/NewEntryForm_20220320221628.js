@@ -7,17 +7,11 @@ function NewEntryForm({addEntry}) {
 const [Description, setDescription] = useState('');
 const [Value, setValue] = useState('');
 const [isExpense, setIsExpense] = useState(true)
+
     return (
 
         <Form unstackable >
-           <EntryForm 
-           description={Description}
-            value={Value}
-            setDescription={setDescription}
-            setValue={setValue}
-            isExpense={isExpense}
-            setIsExpense={setIsExpense}
-        />
+           <EntryForm/>
             <Segment compact>
                 <Checkbox 
                  toggle label='Is Expense ?'

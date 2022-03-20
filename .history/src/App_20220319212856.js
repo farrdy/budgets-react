@@ -5,40 +5,30 @@ import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances';
 import { useState } from 'react';
 import EntryLines from './components/EntryLines';
-import ModalEdit from './components/ModalEdit';
 
 function App() {
 
  const [entries, setEntries]=useState(initialEntries)
  
- function deleteEntry(id) {
+ function deleteEntry(id){
   const result=entries.filter(entry=>entry.id!==id)
+  console.log(`entries:`,entries);
+  console.log(`result`,result);
   setEntries(result);
 }
-function addEntry(Description, Value, isExpense){
-  const result=  entries.concat({id: entries.length+1, 
-     Description:Description,
-     Value:Value,
-     isExpense
-    });
 
-      console.log(`result`, result);
-      console.log(`entries`, entries);
-     setEntries(result);
-}
   return (
     <Container>
       <MainHeader />
       <DisplayBalance title="Your Balance" Value="28,955.00" Color="black" size="small" />
       <DisplayBalances/>    
       <Header as='h3'>History</Header>   
-      <EntryLines entries={entries} deleteEntry={deleteEntry}/>
+      <EntryLines entries={entries}/>
       <Header as='h3'>
         Add New Transaction
       </Header>
-      <NewEntryForm addEntry={addEntry} />
+      <NewEntryForm />
     </Container>
-    
   );
 }
 

@@ -5,7 +5,6 @@ import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from './components/DisplayBalances';
 import { useState } from 'react';
 import EntryLines from './components/EntryLines';
-import ModalEdit from './components/ModalEdit';
 
 function App() {
 
@@ -38,7 +37,6 @@ function addEntry(Description, Value, isExpense){
       </Header>
       <NewEntryForm addEntry={addEntry} />
     </Container>
-    
   );
 }
 
