@@ -1,12 +1,10 @@
 import React, { Fragment } from "react";
-import { Checkbox, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 
 export default function EntryForm({
   description,
   setDescription,
   setValue,
-  isExpense,
-  setIsExpense,
   value,
 }) {
   return (
@@ -28,13 +26,6 @@ export default function EntryForm({
           placeholder="100.00"
           value={value}
           onChange={(event) => setValue(event.target.value)}
-        />
-
-        <Checkbox
-          toggle
-          label="Is Expense ?"
-          checked={isExpense}
-          onChange={() => setIsExpense((oldState) => !oldState)}
         />
       </Form.Group>
     </Fragment>

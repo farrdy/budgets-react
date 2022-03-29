@@ -24,12 +24,12 @@ function ModalEdit({
           setValue={setValue}
           isExpense={isExpense}
           setIsExpense={setIsExpense}
-          // editEntry={editEntry}
+          editEntry={editEntry}
         />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setIsOpen(false)}>Close</Button>
-        <Button onClick={() => setIsOpen(false)} positive>
+        <Button onClick={() => setIsOpen(false)} primary>
           Ok
         </Button>
       </Modal.Actions>

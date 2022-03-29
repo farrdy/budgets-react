@@ -46,8 +46,8 @@ function App() {
     });
     setTotalExpense(totalExpenses);
     setTotalIncome(totalIncomes);
-    setTotal(totalIncomes - totalExpenses);
-  }, [entries]);
+    setTotal(totalIncome - totalExpense);
+  }, [entries, total]);
 
   function deleteEntry(id) {
     const result = entries.filter((entry) => entry.id !== id);

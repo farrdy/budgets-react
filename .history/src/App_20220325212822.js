@@ -14,9 +14,6 @@ function App() {
   const [isExpense, setIsExpense] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [entryId, setEntryId] = useState();
-  const [totalIncome, setTotalIncome] = useState(0);
-  const [totalExpense, setTotalExpense] = useState(0);
-  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     if (!isOpen && entryId) {
@@ -26,51 +23,25 @@ function App() {
       newEntries[index].Value = Value;
       newEntries[index].isExpense = isExpense;
       setEntries(newEntries);
-      resetEntry();
     }
-  }, [isOpen]);
-
-  useEffect(() => {
-    let totalExpenses = 0;
-    let totalIncomes = 0;
-    entries.map((entry) => {
-      if (entry.isExpense) {
-        totalExpenses += Number(entry.Value);
-
-        return totalExpenses;
-      } else {
-        totalIncomes += Number(entry.Value);
-
-        return totalIncomes;
-      }
-    });
-    setTotalExpense(totalExpenses);
-    setTotalIncome(totalIncomes);
-    setTotal(totalIncomes - totalExpenses);
-  }, [entries]);
+  }, []);
 
   function deleteEntry(id) {
     const result = entries.filter((entry) => entry.id !== id);
     setEntries(result);
   }
 
-  function addEntry() {
+  function addEntry(Description, Value, isExpense) {
     const result = entries.concat({
       id: entries.length + 1,
-      Description: Description,
-      Value: Value,
-      isExpense: isExpense,
+      Description,
+      Value,
+      isExpense,
     });
 
     console.log(`result`, result);
     console.log(`entries`, entries);
     setEntries(result);
-  }
-
-  function resetEntry() {
-    setDescription("");
-    setValue("");
-    setIsExpense(true);
   }
 
   function editEntry(id) {
@@ -82,6 +53,7 @@ function App() {
       setDescription(entry.Description);
       setValue(entry.Value);
       setIsExpense(entry.isExpense);
+
       setIsOpen(true);
       console.log(Description, Value);
     }
@@ -91,11 +63,11 @@ function App() {
       <MainHeader />
       <DisplayBalance
         title="Your Balance"
-        Value={total}
+        Value="28,955.00"
         Color="black"
         size="small"
       />
-      <DisplayBalances totalIncome={totalIncome} totalExpense={totalExpense} />
+      <DisplayBalances />
       <Header as="h3">History</Header>
       <EntryLines
         entries={entries}
@@ -133,25 +105,25 @@ var initialEntries = [
   {
     id: 1,
     Description: "Work Income",
-    Value: 5000,
+    Value: "50000",
     isExpense: false,
   },
   {
     id: 2,
     Description: "Electricity",
-    Value: 600,
+    Value: "600",
     isExpense: true,
   },
   {
     id: 3,
     Description: "Grossary",
-    Value: 200,
+    Value: "2000",
     isExpense: true,
   },
   {
     id: 4,
     Description: "Transportation",
-    Value: 350,
+    Value: "3500",
     isExpense: true,
   },
 ];

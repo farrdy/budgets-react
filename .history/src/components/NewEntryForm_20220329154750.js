@@ -23,7 +23,12 @@ function NewEntryForm({
         setIsExpense={setIsExpense}
       />
 
-      <ButtonSaveOrCancel addEntry={addEntry} />
+      <ButtonSaveOrCancel
+        addEntry={addEntry}
+        Description={description}
+        Value={value}
+        isExpense={isExpense}
+      />
     </Form>
   );
 }

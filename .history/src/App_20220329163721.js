@@ -35,18 +35,18 @@ function App() {
     let totalIncomes = 0;
     entries.map((entry) => {
       if (entry.isExpense) {
-        totalExpenses += Number(entry.Value);
+        totalExpenses += entry.Value;
 
         return totalExpenses;
       } else {
-        totalIncomes += Number(entry.Value);
+        totalIncomes += entry.Value;
 
         return totalIncomes;
       }
     });
     setTotalExpense(totalExpenses);
     setTotalIncome(totalIncomes);
-    setTotal(totalIncomes - totalExpenses);
+    setTotal(totalIncome - totalExpense);
   }, [entries]);
 
   function deleteEntry(id) {
@@ -95,7 +95,7 @@ function App() {
         Color="black"
         size="small"
       />
-      <DisplayBalances totalIncome={totalIncome} totalExpense={totalExpense} />
+      <DisplayBalances />
       <Header as="h3">History</Header>
       <EntryLines
         entries={entries}

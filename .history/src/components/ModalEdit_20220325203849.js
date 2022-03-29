@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal } from "semantic-ui-react";
-import EntryForm from "./EntryForm";
+import NewEntryForm from "./NewEntryForm";
 
 function ModalEdit({
   isOpen,
@@ -17,21 +17,20 @@ function ModalEdit({
     <Modal open={isOpen}>
       <Modal.Header>Edit Entry</Modal.Header>
       <Modal.Content>
-        <EntryForm
+        {/* <Modal.Description>
+                Something Else
+            </Modal.Description> */}
+        <NewEntryForm
           description={Description}
           value={Value}
           setDescription={setDescription}
           setValue={setValue}
           isExpense={isExpense}
           setIsExpense={setIsExpense}
-          // editEntry={editEntry}
         />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setIsOpen(false)}>Close</Button>
-        <Button onClick={() => setIsOpen(false)} positive>
-          Ok
-        </Button>
       </Modal.Actions>
     </Modal>
   );

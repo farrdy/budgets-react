@@ -46,7 +46,7 @@ function App() {
     });
     setTotalExpense(totalExpenses);
     setTotalIncome(totalIncomes);
-    setTotal(totalIncomes - totalExpenses);
+    setTotal(Number(totalIncome - totalExpense));
   }, [entries]);
 
   function deleteEntry(id) {
